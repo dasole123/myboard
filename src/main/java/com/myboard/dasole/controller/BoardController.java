@@ -1,12 +1,10 @@
 package com.myboard.dasole.controller;
 
 import com.myboard.dasole.domain.*;
-import com.myboard.dasole.domain.service.BoardService;
+import com.myboard.dasole.service.BoardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,6 +69,14 @@ public class BoardController {
         else {
             return "비밀번호 불일치";
         }
+    }
+
+// 특정 게시물 조회
+    @GetMapping("/api/boards/{id}")
+    public Board getBoards(@PathVariable Long id) {
+        Board board = boardRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("contentsId가 존재하지 않습니다."));
+        return board;
     }
 }
 

@@ -1,4 +1,4 @@
-package com.myboard.dasole.domain.service;
+package com.myboard.dasole.service;
 
 import com.myboard.dasole.domain.Board;
 import com.myboard.dasole.domain.BoardRepository;
